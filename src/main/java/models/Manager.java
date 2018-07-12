@@ -15,8 +15,9 @@ public class Manager extends Employee{
 
 
     public Manager(String name, String NINumber, double salary, double budget){
-        super( name,  NINumber,  salary);
+        super(name,  NINumber,  salary);
         this.budget = budget;
+
     }
 
     public Manager(){}
@@ -32,8 +33,7 @@ public class Manager extends Employee{
     }
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn( name = "department_id", nullable = false)
+    @OneToOne(mappedBy = "manager", fetch = FetchType.LAZY)
     public Department getDepartment(){
         return department;
     }
