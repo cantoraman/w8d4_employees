@@ -8,7 +8,6 @@ import java.util.List;
 @Table(name = "managers")
 public class Manager extends Employee{
 
-    private int id;
     private double budget;
     private Department department;
 
@@ -38,7 +37,7 @@ public class Manager extends Employee{
     public Department getDepartment(){
         return department;
     }
-    public void setDepartment(){
+    public void setDepartment(Department department){
         this.department = department;
     }
 

@@ -1,13 +1,14 @@
 package models;
 
 import javax.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "employees")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Employee {
 
-    private int ID;
+    private int id;
     private String name;
     private String NINumber;
     private double salary;
@@ -25,19 +26,18 @@ public abstract class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Column(name = "name")
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -47,7 +47,6 @@ public abstract class Employee {
     public double getSalary() {
         return salary;
     }
-
     public void setSalary(double salary) {
         this.salary = salary;
     }

@@ -7,16 +7,29 @@ import javax.persistence.*;
 @Table(name = "departments")
 public class Department{
 
+
+    private int id;
 private String name;
 private Manager manager;
 
-public Department(String name, Manager manager){
+public Department(String name, Manager manager ){
     this.name = name;
-    this.manager = manager;
+this.manager = manager;
 
 }
 
 public Department(){}
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId(){
+    return id;
+    }
+
+    public void setId(int newId){
+    this.id = newId;
+    }
 
     @Column(name = "name")
     public String getName() {
@@ -27,8 +40,7 @@ public Department(){}
         this.name = name;
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id", nullable = false)
+    @OneToOne(mappedBy = "department", fetch = FetchType.LAZY)
     public Manager getManager() {
         return manager;
     }
